@@ -16,7 +16,7 @@ class Output extends Component {
             </div>
             <BMIGraph value={[{
               label: '내 BMI',
-              bmi: 22
+              bmi: percentage
             }]}></BMIGraph>
         </div>
       </div>

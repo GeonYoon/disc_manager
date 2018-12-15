@@ -24,19 +24,40 @@ class Form extends Component {
             <div style={{padding:20}}>
               <Row>
                 <Input
-                  type='textarea'
                   label="Your Age"
                   s={12}
                   name="age"
                   onChange={this.handleChange}
                 />
                 <Input
-                  type='textarea'
-                  label="Your Blood Pressure"
+                  label="height"
                   s={12}
-                  name="blood_pressure"
+                  name="height"
                   onChange={this.handleChange}
                 />
+                <Input
+                  label="weight"
+                  s={12}
+                  name="weight"
+                  onChange={this.handleChange}
+                />
+                <Input
+                  label="muscle_mass"
+                  s={12}
+                  name="muscle_mass"
+                  onChange={this.handleChange}
+                />
+                <Input
+                  label="body_fat"
+                  s={12}
+                  name="body_fat"
+                  onChange={this.handleChange}
+                />
+                {/* <Input type="file" label="File" s={12}  placeholder="Upload your genetic file" /> */}
+                {/* <Row>
+                    <Input name='smoke' type='radio' value='smoker' label='Smoker' />
+                    <Input name='smoke' type='radio' value='non_smoker' label='Non_Smoker' />
+                </Row> */}
               </Row>
               <div className="fixed-action-btn">
                 <div className="btn-floating btn-large red">
