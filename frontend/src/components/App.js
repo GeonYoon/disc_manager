@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 
 import HeaderContainer from '../containers/headerContainer';
+
+import homeContainer from '../containers/homeContainer';
 import loginContainer from '../containers/loginContainer';
 import registerContainer from '../containers/registerContainer';
 import formContainer from '../containers/formContainer';
@@ -28,6 +30,7 @@ class App extends Component {
                     <Route exact path="/" component={landingContainer} />
                     <Route exact path="/login" component={loginContainer} />
                     <Route exact path="/register" component={registerContainer} />
+                    <Route exact path="/home" component={homeContainer} />
                     <PrivateRoute exact path="/form" component={formContainer} />
                     <PrivateRoute exact path="/output" component={outputContainer} />
                   </Switch>
