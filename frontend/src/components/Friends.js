@@ -1,6 +1,7 @@
 import React from 'react'
 import friendsData from '../assets/friendsData'
 import { Table } from 'react-materialize'
+import classnames from 'classnames'
 
 function bmi ({ height, weight }) {
   return weight / height / height * 10000
@@ -15,9 +16,18 @@ const Friends = () => {
 
   const sortedData = friendsData.slice()
     .concat([myData]).sort((a, b) => bmi(a) - bmi(b))
+
   return (
     <div style ={{ textAlign : 'center'}}>
       <h1>Friends</h1>
+
+      <style>
+      {`
+        table tbody tr.highlight {
+          background-color: #fdd;
+        }
+      `}
+      </style>
 
       <Table>
         <thead>
@@ -29,7 +39,9 @@ const Friends = () => {
           </tr>
         </thead>
         <tbody>
-          {sortedData.map(data => <tr key={data.name}>
+          {sortedData.map(data => <tr key={data.name} className={classnames({
+            highlight: data === myData
+          })}>
             <td>{data.name}</td>
             <td>{data.height}</td>
             <td>{data.weight}</td>
