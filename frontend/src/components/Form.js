@@ -72,7 +72,7 @@ class Form extends Component {
                   label="Type YES if you smoke or Type No"
                   s={12}
                   name="smoking"
-                  defaultValue={this.state.age}
+                  defaultValue={this.state.smoking}
                   onChange={this.handleChange}
                 />
                 <Input type="file"
