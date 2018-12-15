@@ -14,7 +14,7 @@ class Output extends Component {
                 <p>Probability of taking a waist disc<strong>{percentage}</strong></p>
               </div>
             </div>
-            <BMIGraph value='33'></BMIGraph>
+            <BMIGraph value={percentage}></BMIGraph>
         </div>
       </div>
     );
