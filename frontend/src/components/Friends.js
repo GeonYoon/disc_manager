@@ -32,6 +32,7 @@ const Friends = () => {
       <Table>
         <thead>
           <tr>
+            <th>#</th>
             <th>이름</th>
             <th>키</th>
             <th>몸무게</th>
@@ -39,9 +40,10 @@ const Friends = () => {
           </tr>
         </thead>
         <tbody>
-          {sortedData.map(data => <tr key={data.name} className={classnames({
+          {sortedData.map((data, index) => <tr key={data.name} className={classnames({
             highlight: data === myData
           })}>
+            <td>{index + 1}</td>
             <td>{data.name}</td>
             <td>{data.height}</td>
             <td>{data.weight}</td>
