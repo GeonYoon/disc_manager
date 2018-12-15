@@ -13,9 +13,10 @@ class HomeContainer extends Component {
 }
 
 const mapStateToProps = ({ form, auth }) => {
-  console.log('auth', auth, form)
+  console.log("score is: " + form.score)
   return {
-    bmi: BMI(form.height, form.weight),
+    // bmi: BMI(form.height, form.weight),
+    score : form.score,
     muscle: form.muscle_mass,
     fat: form.body_fat,
     percentage: form.percentage,

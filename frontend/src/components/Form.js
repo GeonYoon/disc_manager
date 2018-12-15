@@ -13,6 +13,9 @@ class Form extends Component {
       body_fat : null,
       smoking : null,
       file: null,
+      pain: null,
+      accident : null,
+      gender : null,
       ...props.form
     }
   }
@@ -34,43 +37,64 @@ class Form extends Component {
             <div style={{padding:20}}>
               <Row>
                 <Input
-                  label="Your Age"
-                  s={12}
+                  label="Your age"
+                  s={6}
                   name="age"
                   defaultValue={this.state.age}
                   onChange={this.handleChangeNumber}
                 />
                 <Input
+                  label="Type your gender"
+                  s={6}
+                  name="gender"
+                  defaultValue={this.state.gender}
+                  onChange={this.handleChange}
+                />
+                <Input
+                  label="Do you feel pain from your back?"
+                  s={6}
+                  name="pain"
+                  defaultValue={this.state.pain}
+                  onChange={this.handleChange}
+                />
+                 <Input
+                  label="have you ever been hurt your back?"
+                  s={6}
+                  name="accident"
+                  defaultValue={this.state.accident}
+                  onChange={this.handleChange}
+                />
+                <Input
                   label="height (cm)"
-                  s={12}
+                  s={6}
                   name="height"
                   defaultValue={this.state.height}
                   onChange={this.handleChangeNumber}
                 />
                 <Input
                   label="weight (kg)"
-                  s={12}
+                  s={6}
                   name="weight"
                   defaultValue={this.state.weight}
                   onChange={this.handleChangeNumber}
                 />
                 <Input
                   label="muscle_mass (kg)"
-                  s={12}
+                  s={6}
                   name="muscle_mass"
                   defaultValue={this.state.muscle_mass}
                   onChange={this.handleChangeNumber}
                 />
                 <Input
                   label="body_fat (%)"
-                  s={12}
+                  s={6}
                   name="body_fat"
                   defaultValue={this.state.body_fat}
                   onChange={this.handleChangeNumber}
                 />
                 <Input
                   label="Type YES if you smoke or Type No"
-                  s={12}
+                  s={6}
                   name="smoking"
                   defaultValue={this.state.smoking}
                   onChange={this.handleChange}
@@ -79,7 +103,7 @@ class Form extends Component {
                        label="File"
                        name="file"
                        onChange={this.handleChange}
-                       s={12}
+                       s={6}
                        placeholder="Upload your genetic file"
                 />
               </Row>

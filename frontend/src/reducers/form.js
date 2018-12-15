@@ -10,15 +10,20 @@ const formInitialState = {
   muscle_mass : null,
   body_fat : null,
   smoking : null,
-  file : null
+  accident : null,
+  pain : null,
+  file : null,
+  gender : null,
+  score : null
 }
 
 export default handleActions({
   [FORM_SUCCESS] : (state, action) => {
-    console.log(action.meta);
+    console.log(action.payload.score);
     return {
-      percentage : action.payload.percentage,
       ...action.meta,
+      percentage : action.payload.percentage,
+      score : action.payload.score,
     }
   }
 }, formInitialState)
