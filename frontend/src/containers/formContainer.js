@@ -14,9 +14,14 @@ class formContainer extends Component {
 
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  handleForm : (age, blood_pressure) => {
+  handleForm : (age, height,weight,muscle_mass,body_fat,smoking,file) => {
     dispatch(form(age,
-                  blood_pressure,
+                  height,
+                  weight,
+                  muscle_mass,
+                  body_fat,
+                  smoking,
+                  file,
                   ownProps.history));
   }
 });
