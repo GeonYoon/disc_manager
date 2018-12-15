@@ -8,21 +8,14 @@ class formContainer extends Component {
   render(){
     const { handleForm} = this.props;
     return <Form handleForm = {handleForm}
-           />;
+           />
   }
 }
 
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  handleForm : (age, height,weight,muscle_mass,body_fat,smoking,file) => {
-    dispatch(form(age,
-                  height,
-                  weight,
-                  muscle_mass,
-                  body_fat,
-                  smoking,
-                  file,
-                  ownProps.history));
+  handleForm : (formData) => {
+    dispatch(form(formData, ownProps.history))
   }
 });
 export default withRouter(connect(null,mapDispatchToProps)(formContainer));

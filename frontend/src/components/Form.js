@@ -1,34 +1,31 @@
-import React, {Component} from 'react';
-import { Row, Input } from 'react-materialize';
+import React, {Component} from 'react'
+import { Row, Input } from 'react-materialize'
 
 
 class Form extends Component {
   constructor(props){
-    super(props);
+    super(props)
     this.state = {
-      age : '',
-      height : '',
-      weight : '',
-      muscle_mass : '',
-      body_fat : '',
-      smoking : '',
+      age : null,
+      height : null,
+      weight : null,
+      muscle_mass : null,
+      body_fat : null,
+      smoking : null,
       file: null
-    };
+    }
   }
 
   handleChange = e => {
-    this.setState({[e.target.name] : e.target.value});
-  };
+    this.setState({ [e.target.name]: e.target.value })
+  }
+
+  handleChangeNumber = e => {
+    this.setState({ [e.target.name]: e.target.value ? e.target.value | 0 : null })
+  }
 
   handleSubmit = e => {
-    this.props.handleForm(this.state.age,
-                          this.state.height,
-                          this.state.weight,
-                          this.state.muscle_mass,
-                          this.state.body_fat,
-                          this.state.smoking,
-                          this.state.file,
-                          this.props.history);
+    this.props.handleForm(this.state)
   }
 
   render() {
@@ -39,31 +36,31 @@ class Form extends Component {
                   label="Your Age"
                   s={12}
                   name="age"
-                  onChange={this.handleChange}
+                  onChange={this.handleChangeNumber}
                 />
                 <Input
                   label="height"
                   s={12}
                   name="height"
-                  onChange={this.handleChange}
+                  onChange={this.handleChangeNumber}
                 />
                 <Input
                   label="weight"
                   s={12}
                   name="weight"
-                  onChange={this.handleChange}
+                  onChange={this.handleChangeNumber}
                 />
                 <Input
                   label="muscle_mass"
                   s={12}
                   name="muscle_mass"
-                  onChange={this.handleChange}
+                  onChange={this.handleChangeNumber}
                 />
                 <Input
                   label="body_fat"
                   s={12}
                   name="body_fat"
-                  onChange={this.handleChange}
+                  onChange={this.handleChangeNumber}
                 />
                 <Input
                   label="Type YES if you smoke or Type No"
@@ -71,12 +68,12 @@ class Form extends Component {
                   name="smoking"
                   onChange={this.handleChange}
                 />
-                <Input type="file" 
-                       label="File" 
+                <Input type="file"
+                       label="File"
                        name="file"
                        onChange={this.handleChange}
-                       s={12}  
-                       placeholder="Upload your genetic file" 
+                       s={12}
+                       placeholder="Upload your genetic file"
                 />
               </Row>
               <div className="fixed-action-btn">
@@ -90,7 +87,7 @@ class Form extends Component {
                 </div>
               </div>
             </div>
-          );
+          )
   }
 }
 

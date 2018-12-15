@@ -18,12 +18,7 @@ export default handleActions({
     console.log(action.meta);
     return {
       percentage : action.payload.percentage,
-      age : action.meta.age,
-      weight : action.meta.weight,
-      muscle_mass : action.meta.muscle_mass,
-      body_fat : action.meta.body_fat,
-      smoking : action.meta.smoking,
-      file : null
+      ...action.meta,
     }
   }
 }, formInitialState)
