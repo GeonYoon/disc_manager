@@ -6,16 +6,18 @@ import { withRouter } from 'react-router-dom';
 
 class formContainer extends Component {
   render(){
-    const { handleForm} = this.props;
-    return <Form handleForm = {handleForm}
-           />
+    const { form, handleForm } = this.props;
+    return <Form form={form} handleForm = {handleForm} />
   }
 }
 
+const mapStateToProps = ({ form }) => ({
+  form
+})
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   handleForm : (formData) => {
     dispatch(form(formData, ownProps.history))
   }
 });
-export default withRouter(connect(null,mapDispatchToProps)(formContainer));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(formContainer));

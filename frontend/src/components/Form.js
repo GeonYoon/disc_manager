@@ -12,7 +12,8 @@ class Form extends Component {
       muscle_mass : null,
       body_fat : null,
       smoking : null,
-      file: null
+      file: null,
+      ...props.form
     }
   }
 
@@ -36,36 +37,42 @@ class Form extends Component {
                   label="Your Age"
                   s={12}
                   name="age"
+                  defaultValue={this.state.age}
                   onChange={this.handleChangeNumber}
                 />
                 <Input
-                  label="height"
+                  label="height (cm)"
                   s={12}
                   name="height"
+                  defaultValue={this.state.height}
                   onChange={this.handleChangeNumber}
                 />
                 <Input
-                  label="weight"
+                  label="weight (kg)"
                   s={12}
                   name="weight"
+                  defaultValue={this.state.weight}
                   onChange={this.handleChangeNumber}
                 />
                 <Input
-                  label="muscle_mass"
+                  label="muscle_mass (kg)"
                   s={12}
                   name="muscle_mass"
+                  defaultValue={this.state.muscle_mass}
                   onChange={this.handleChangeNumber}
                 />
                 <Input
-                  label="body_fat"
+                  label="body_fat (%)"
                   s={12}
                   name="body_fat"
+                  defaultValue={this.state.body_fat}
                   onChange={this.handleChangeNumber}
                 />
                 <Input
                   label="Type YES if you smoke or Type No"
                   s={12}
                   name="smoking"
+                  defaultValue={this.state.age}
                   onChange={this.handleChange}
                 />
                 <Input type="file"
