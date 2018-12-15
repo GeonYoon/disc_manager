@@ -15,11 +15,13 @@ class BMIGraph extends PureComponent {
     const maxValue = bmiTable[bmiTable.length - 1].value
 
     for(let i = 0 ; i < bmiTable.length ; i++) {
-      const prevValue = (i == 0) ? 0 : bmiTable[i - 1].value
+      const prevValue = (i === 0) ? 0 : bmiTable[i - 1].value
       const {value, color, label} = bmiTable[i]
       rects.push(<rect x={prevValue} y='1' width={value - prevValue} height='1.4' fill={color}></rect>)
       rects.push(<text x={(value + prevValue) / 2} y='2' className='text-bar-label'>{label}</text>)
-      rects.push(<text x={value} y='0.8' className='text-bar-value'>{value}</text>)
+      if (i !== bmiTable.length - 1) {
+        rects.push(<text x={value} y='0.8' className='text-bar-value'>{value}</text>)
+      }
     }
     return (
       <svg width='100%' viewBox={`0 0 ${maxValue} 4`}>
