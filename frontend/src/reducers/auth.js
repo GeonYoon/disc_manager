@@ -21,7 +21,7 @@ export default handleActions({
        console.log(action.payload)
       return { ...state,
                token: action.payload.token,
-               user: action.payload.user,
+               user: action.payload.username,
                expires: action.payload.expires,
                isAuthenticated : true,
                error : false,
@@ -48,7 +48,7 @@ export default handleActions({
       return {
           ...state,
           token : action.payload.token,
-          user : action.payload.user,
+          user : action.payload.username,
           expires : action.payload.expires,
           isAuthenticated : true,
           error : false,
