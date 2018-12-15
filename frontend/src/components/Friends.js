@@ -3,11 +3,14 @@ import friendsData from '../apimock/friendsData'
 import getLumbarScore from '../apimock/lumbarScore'
 import { Table } from 'react-materialize'
 import classnames from 'classnames'
-const Friends = () => {
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+
+const Friends = (props) => {
   const myData = {
-    name: '나',
-    height: 178,
-    weight: 85
+    name: props.username,
+    height: props.form.height,
+    weight: props.form.weight
   }
 
   const sortedData = friendsData.slice()
@@ -51,4 +54,13 @@ const Friends = () => {
   )
 }
 
-export default Friends;
+const mapStateToProps = ({ auth, form }) => {
+  return {
+    auth: auth.isAuthenticated,
+    username: auth.user,
+    form
+  }
+};
+
+export default withRouter(connect(mapStateToProps, null)(Friends))
+
