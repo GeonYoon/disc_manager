@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import BMIGraph from './BMIGraph';
+import BMIGraph from './graph/BMIGraph';
 
 class Output extends Component {
 
