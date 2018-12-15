@@ -6,17 +6,12 @@ import {
   Row,
   Table
 } from 'react-materialize'
+import friendsData from '../assets/friendsData'
 
-const myBMI = 23
+const myBMI = 24
 const myMuscle = 30
 const myFat = 30
 
-const friendBMI = [
-  { label: '다이크', bmi: 22 },
-  { label: '가이린', bmi: 18 },
-  { label: '엘', bmi: 24 },
-  { label: '하즈', bmi: 27 }
-]
 
 class Home extends Component {
   render() {
@@ -24,7 +19,10 @@ class Home extends Component {
 
     const data = [
       { label: `나 (${username})`, bmi: myBMI, highlight: true },
-      ...friendBMI
+      ...friendsData.map(({name, height, weight}) => ({
+        label: name,
+        bmi: weight / height / height * 10000
+      }))
     ]
     return (
       <div style={{padding:20}}>
