@@ -32,7 +32,7 @@ class Header extends Component {
                             to={this.props.auth ? '/form' : '/'}
                             className="left brand-logo"
                         >
-                            DISK
+                            DISC
                         </Link>
                         <ul className = "right">
                             { this.renderContent() }
