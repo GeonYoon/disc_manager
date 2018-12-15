@@ -13,12 +13,18 @@ class FormAPIView(APIView):
    
     def post(self, request, *args, **kwargs):
         data = request.data
-        age = data.get("age");
-        blood_pressure = data.get("blood_pressure");
+        age = data.get("age")
+        height = int(data.get("height"))
+        weight = int(data.get("weight"))
+        muscle_mass = data.get("muscle_mass")
+        body_fat = data.get("body_fat")
+        smoking = data.get("smoking")
+        file_1 = data.get("file")
 
-        returnval = int(age) + int(blood_pressure)
+
+        BMI = weight / (height*height)
         
-        return Response({"percentage" : returnval}, status=200)
+        return Response({"percentage" : BMI}, status=200)
 
     
         

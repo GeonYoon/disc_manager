@@ -7,7 +7,12 @@ class Form extends Component {
     super(props);
     this.state = {
       age : '',
-      blood_pressure : ''
+      height : '',
+      weight : '',
+      muscle_mass : '',
+      body_fat : '',
+      smoking : '',
+      file: null
     };
   }
 
@@ -16,7 +21,14 @@ class Form extends Component {
   };
 
   handleSubmit = e => {
-    this.props.handleForm(this.state.age,this.state.blood_pressure,this.props.history);
+    this.props.handleForm(this.state.age,
+                          this.state.height,
+                          this.state.weight,
+                          this.state.muscle_mass,
+                          this.state.body_fat,
+                          this.state.smoking,
+                          this.state.file,
+                          this.props.history);
   }
 
   render() {
@@ -53,11 +65,19 @@ class Form extends Component {
                   name="body_fat"
                   onChange={this.handleChange}
                 />
-                {/* <Input type="file" label="File" s={12}  placeholder="Upload your genetic file" /> */}
-                {/* <Row>
-                    <Input name='smoke' type='radio' value='smoker' label='Smoker' />
-                    <Input name='smoke' type='radio' value='non_smoker' label='Non_Smoker' />
-                </Row> */}
+                <Input
+                  label="Type YES if you smoke or Type No"
+                  s={12}
+                  name="smoking"
+                  onChange={this.handleChange}
+                />
+                <Input type="file" 
+                       label="File" 
+                       name="file"
+                       onChange={this.handleChange}
+                       s={12}  
+                       placeholder="Upload your genetic file" 
+                />
               </Row>
               <div className="fixed-action-btn">
                 <div className="btn-floating btn-large red">
