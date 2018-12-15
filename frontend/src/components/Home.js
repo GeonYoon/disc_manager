@@ -6,7 +6,7 @@ import {
   Row,
   Table
 } from 'react-materialize'
-import friendsData from '../assets/friendsData'
+import friendsData from '../apimock/friendsData'
 
 const myBMI = 24
 const myMuscle = 30

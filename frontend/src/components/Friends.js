@@ -1,12 +1,8 @@
 import React from 'react'
-import friendsData from '../assets/friendsData'
+import friendsData from '../apimock/friendsData'
+import getLumbarScore from '../apimock/lumbarScore'
 import { Table } from 'react-materialize'
 import classnames from 'classnames'
-
-function bmi ({ height, weight }) {
-  return weight / height / height * 10000
-}
-
 const Friends = () => {
   const myData = {
     name: '나',
@@ -15,7 +11,7 @@ const Friends = () => {
   }
 
   const sortedData = friendsData.slice()
-    .concat([myData]).sort((a, b) => bmi(a) - bmi(b))
+    .concat([myData]).sort((a, b) => getLumbarScore(b) - getLumbarScore(a))
 
   return (
     <div style ={{ textAlign : 'center'}}>
@@ -36,7 +32,7 @@ const Friends = () => {
             <th>이름</th>
             <th>키</th>
             <th>몸무게</th>
-            <th>BMI</th>
+            <th>Score</th>
           </tr>
         </thead>
         <tbody>
@@ -47,7 +43,7 @@ const Friends = () => {
             <td>{data.name}</td>
             <td>{data.height}</td>
             <td>{data.weight}</td>
-            <td>{bmi(data).toFixed(1)}</td>
+            <td>{getLumbarScore(data).toFixed(1)}</td>
           </tr>)}
         </tbody>
       </Table>

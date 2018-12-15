@@ -1,17 +1,19 @@
-import React, { Component } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { connect } from 'react-redux';
-import * as actions from '../actions';
+import React, { Component } from 'react'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { connect } from 'react-redux'
+import 'react-toastify/dist/ReactToastify.css'
+import { ToastContainer } from 'react-toastify'
+import * as actions from '../actions'
 
-import HeaderContainer from '../containers/headerContainer';
+import HeaderContainer from '../containers/headerContainer'
 
-import homeContainer from '../containers/homeContainer';
-import loginContainer from '../containers/loginContainer';
-import registerContainer from '../containers/registerContainer';
-import formContainer from '../containers/formContainer';
-import landingContainer from '../containers/landingContainer';
-import Friends from '../components/Friends';
-import PrivateRoute from '../containers/PrivateRoute';
+import homeContainer from '../containers/homeContainer'
+import loginContainer from '../containers/loginContainer'
+import registerContainer from '../containers/registerContainer'
+import formContainer from '../containers/formContainer'
+import landingContainer from '../containers/landingContainer'
+import Friends from '../components/Friends'
+import PrivateRoute from '../containers/PrivateRoute'
 
 
 class App extends Component {
@@ -33,10 +35,11 @@ class App extends Component {
                   </Switch>
                 </div>
             </BrowserRouter>
+            <ToastContainer></ToastContainer>
         </div>
-        );
+        )
     }
 }
 
 
-export default connect(null, actions)(App);
+export default connect(null, actions)(App)
