@@ -5,11 +5,16 @@ import { withRouter } from 'react-router-dom';
 
 class HomeContainer extends Component {
   render() {
-    return <Home />
+    const { percentage, username } = this.props
+    return <Home
+      percentage={percentage}
+      username={username}
+    />
   }
 }
 
 const mapStateToProps = ({ form, auth }) => {
+  console.log('auth', auth)
   return {
     percentage: form.percentage,
     username: auth.user

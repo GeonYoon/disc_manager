@@ -7,8 +7,6 @@ import {
   Table
 } from 'react-materialize'
 
-const username = '덴마'
-
 const myBMI = 23
 const myMuscle = 30
 const myFat = 30
@@ -22,6 +20,8 @@ const friendBMI = [
 
 class Home extends Component {
   render() {
+    const { percentage, username } = this.props
+
     const data = [
       { label: `나 (${username})`, bmi: myBMI, highlight: true },
       ...friendBMI
@@ -30,6 +30,9 @@ class Home extends Component {
       <div style={{padding:20}}>
         <CardPanel s={12}>
           <h3>{username}의 정보</h3>
+          <CardPanel className='teal lighten-4'>
+            <strong>디스크에 걸릴 확률은 {percentage}% 입니다.</strong>
+          </CardPanel>
           <Row class='center-align'>
             <img src={avatarImg} width={200} alt='내 이미지' />
           </Row>
