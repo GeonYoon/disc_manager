@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import BMIGraph from './BMIGraph';
 
 class Output extends Component {
 
@@ -13,6 +14,7 @@ class Output extends Component {
                 <p>Probability of taking a waist disc<strong>{percentage}</strong></p>
               </div>
             </div>
+            <BMIGraph value='33'></BMIGraph>
         </div>
       </div>
     );
