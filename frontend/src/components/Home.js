@@ -10,7 +10,7 @@ import friendsData from '../apimock/friendsData'
 
 class Home extends Component {
   render() {
-    const { percentage, username, muscle, fat,score } = this.props
+    const { percentage, username, muscle, fat,score,advice } = this.props
 
     const data = [
       { label: `나 (${username})`, bmi: percentage, highlight: true },
@@ -22,9 +22,11 @@ class Home extends Component {
     return (
       <div style={{padding:20}}>
         <CardPanel s={12}>
-          <h3>{username}의 정보</h3>
+          <h3>{username}님의 정보</h3>
           <CardPanel className='teal lighten-4'>
-            <strong>디스크에 걸릴 확률은 {score}% 입니다.</strong>
+            <strong>당신의 허리 건강점수는 {score}점 입니다.</strong>
+            <p>{username}님을 위한 맟줌 운동은 : {advice[0]}</p>
+            <p>이유는 : {advice[1]}</p>
           </CardPanel>
           <Row className='center-align'>
             <img src={avatarImg} width={200} alt='내 이미지' />

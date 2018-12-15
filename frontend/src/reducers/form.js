@@ -14,6 +14,7 @@ const formInitialState = {
   pain : null,
   file : null,
   gender : null,
+  advice : null,
   score : null
 }
 
@@ -23,6 +24,7 @@ export default handleActions({
     return {
       ...action.meta,
       percentage : action.payload.percentage,
+      advice : action.payload.advice,
       score : action.payload.score,
     }
   }

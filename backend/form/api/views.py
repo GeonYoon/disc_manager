@@ -7,6 +7,7 @@ from rest_framework_jwt.settings import api_settings
 from .permissions import AnonPermissionOnly
 
 from Scoring import calcScore
+from Scoring import exercise
 
 class FormAPIView(APIView):
     #authentication_classes      = []
@@ -16,6 +17,8 @@ class FormAPIView(APIView):
         data = request.data
         age = data.get("age")
         gender = data.get("gender")
+        pain = data.get("pain")
+        accident = data.get("accident") 
         height = int(data.get("height"))*0.01
         weight = int(data.get("weight"))
         muscle_mass = int(data.get("muscle_mass"))
@@ -26,9 +29,9 @@ class FormAPIView(APIView):
 
         BMI = round(weight / (height*height),2)
         Score = round(calcScore.Scoring([gender,height*100,weight,body_fat,muscle_mass]),2)
-        
-        
-        return Response({"percentage" : BMI, "score" : Score}, status=200)
+        advice = exercise.suggest_work_out(pain,accident,age,gender,height,weight,muscle_mass,body_fat,smoking)
+
+        return Response({"percentage" : BMI, "score" : Score, "advice" : advice}, status=200)
 
     
         

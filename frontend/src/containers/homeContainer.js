@@ -17,7 +17,8 @@ const mapStateToProps = ({ form, auth }) => {
     muscle: form.muscle_mass,
     fat: form.body_fat,
     percentage: form.percentage,
-    username: auth.user
+    username: auth.user,
+    advice : form.advice
   }
 }
 

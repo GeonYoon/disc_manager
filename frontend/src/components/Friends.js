@@ -9,16 +9,17 @@ import { withRouter } from 'react-router-dom';
 const Friends = (props) => {
   const myData = {
     name: props.username,
-    height: props.form.height,
-    weight: props.form.weight
+    // height: props.form.height,
+    // weight: props.form.weight,
+    score : props.form.score
   }
 
   const sortedData = friendsData.slice()
-    .concat([myData]).sort((a, b) => getLumbarScore(b) - getLumbarScore(a))
+    .concat([myData]).sort((a, b) => b.score-a.score)
 
   return (
     <div style ={{ textAlign : 'center'}}>
-      <h1>Friends</h1>
+      <h1>주간 허리왕 : {sortedData[0].name}</h1>
 
       <style>
       {`
@@ -42,7 +43,7 @@ const Friends = (props) => {
           })}>
             <td>{index + 1}</td>
             <td>{data.name}</td>
-            <td>{getLumbarScore(data).toFixed(1)}</td>
+            <td>{data.score}</td>
           </tr>)}
         </tbody>
       </Table>
