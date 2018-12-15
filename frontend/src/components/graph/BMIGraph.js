@@ -50,18 +50,24 @@ class BMIGraph extends PureComponent {
           }
 
           .indicator-value {
-            font-size: 0.7px;
+            font-size: 0.9px;
             text-anchor: middle;
+            opacity: 0.1;
+          }
+
+          .indicator:hover .indicator-value {
+            transition: opacity 0.1s linear;
+            opacity: 1;
           }
         `}
         </style>
         { rects }
-        { indicatorValues.map(({bmi, label, highlight}) => <>
+        { indicatorValues.map(({bmi, label, highlight}) => <g className='indicator'>
           <line x1={bmi} y1='1.1' x2={bmi} y2='3.7' className='indicator-line'></line>
           <text x={bmi} y='0.8' className='indicator-value'>{bmi.toFixed(1)}</text>
           <text x={bmi - 0.4} y='4.2' className='indicator-label' transform={`rotate(30 ${bmi} 4.6)`}
             font-weight={highlight ? 'bold' : 'normal'}>{label}</text>
-        </>) }
+        </g>) }
       </svg>
     )
   }
