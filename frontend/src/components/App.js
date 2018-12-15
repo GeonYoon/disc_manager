@@ -8,15 +8,13 @@ import loginContainer from '../containers/loginContainer';
 import registerContainer from '../containers/registerContainer';
 import formContainer from '../containers/formContainer';
 import outputContainer from '../containers/outputContainer';
-import landingContainer from '../containers/landingContainer'
-
+import landingContainer from '../containers/landingContainer';
+import Friends from '../components/Friends';
 import PrivateRoute from '../containers/PrivateRoute';
 
 
 class App extends Component {
-    // componentDidMount(){
-    //     this.props.fetchUser();
-    // }
+
 
     render() {
         return (
@@ -28,6 +26,7 @@ class App extends Component {
                     <Route exact path="/" component={landingContainer} />
                     <Route exact path="/login" component={loginContainer} />
                     <Route exact path="/register" component={registerContainer} />
+                    <Route exact path="/friends" component={Friends} />
                     <PrivateRoute exact path="/form" component={formContainer} />
                     <PrivateRoute exact path="/output" component={outputContainer} />
                   </Switch>

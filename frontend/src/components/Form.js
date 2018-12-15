@@ -53,11 +53,11 @@ class Form extends Component {
                   name="body_fat"
                   onChange={this.handleChange}
                 />
-                <Input type="file" label="File" s={12}  placeholder="Upload your genetic file" />
-                <Row>
+                {/* <Input type="file" label="File" s={12}  placeholder="Upload your genetic file" /> */}
+                {/* <Row>
                     <Input name='smoke' type='radio' value='smoker' label='Smoker' />
                     <Input name='smoke' type='radio' value='non_smoker' label='Non_Smoker' />
-                </Row>
+                </Row> */}
               </Row>
               <div className="fixed-action-btn">
                 <div className="btn-floating btn-large red">
