@@ -7,10 +7,9 @@ export function getLumbarScore ({height, weight}) {
 }
 
 export function getLumbarScoreRanking (data) {
-  const allData = friendsData.slice()
-  allData.concat([data])
+  const allData = friendsData.slice().concat([data])
   allData.sort((a, b) => getLumbarScore(b) - getLumbarScore(a))
-  return allData.indexOf(data)
+  return allData.indexOf(data) + 1
 }
 
 export default getLumbarScore

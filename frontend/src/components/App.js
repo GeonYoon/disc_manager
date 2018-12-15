@@ -17,28 +17,29 @@ import PrivateRoute from '../containers/PrivateRoute'
 
 
 class App extends Component {
-
-
-    render() {
-        return (
-        <div className="container">
-            <BrowserRouter>
-                <div>
-                  <HeaderContainer />
-                  <Switch>
-                    <Route exact path="/" component={landingContainer} />
-                    <Route exact path="/login" component={loginContainer} />
-                    <Route exact path="/register" component={registerContainer} />
-                    <PrivateRoute exact path="/home" component={homeContainer} />
-                    <PrivateRoute exact path="/friends" component={Friends} />
-                    <PrivateRoute exact path="/form" component={formContainer} />
-                  </Switch>
-                </div>
-            </BrowserRouter>
-            <ToastContainer></ToastContainer>
+  render() {
+    return (
+    <div className="container">
+      <BrowserRouter>
+        <div>
+          <HeaderContainer />
+          <Switch>
+          <Route exact path="/" component={landingContainer} />
+          <Route exact path="/login" component={loginContainer} />
+          <Route exact path="/register" component={registerContainer} />
+          <PrivateRoute exact path="/home" component={homeContainer} />
+          <PrivateRoute exact path="/friends" component={Friends} />
+          <PrivateRoute exact path="/form" component={formContainer} />
+          </Switch>
         </div>
-        )
-    }
+      </BrowserRouter>
+      <ToastContainer
+        position="bottom-left"
+        hideProgressBar
+      ></ToastContainer>
+    </div>
+    )
+  }
 }
 
 

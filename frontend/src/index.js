@@ -6,6 +6,7 @@ import configureStore from './store';
 import App from './components/App';
 import axios from 'axios';
 import { AppContainer } from 'react-hot-loader';
+import rankChangeListener from './apimock/rankChangeListener'
 
 window.axios = axios;
 
@@ -13,6 +14,7 @@ window.axios = axios;
 // const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
 
 const store = configureStore()
+rankChangeListener(store)
 
 const render = () => {
   ReactDOM.render(
