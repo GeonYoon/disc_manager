@@ -20,4 +20,4 @@ def Scoring(input): ## ex input = ["M", 180, 70, 32, 43] ex sex / ht / wt / fat 
         z_mus = abs(((input[4] - F_w[4])/F_w[5])*5)
         return 100 - sum([z_bmi, z_fat, z_mus])
 
-print(Scoring(input))
+

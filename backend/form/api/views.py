@@ -21,11 +21,13 @@ class FormAPIView(APIView):
         muscle_mass = int(data.get("muscle_mass"))
         body_fat = int(data.get("body_fat"))
         smoking = data.get("smoking")
-        file_1 = data.get("file")
+        file_1 = data.get("file")   
+
 
         BMI = round(weight / (height*height),2)
-        Score = calcScore.Scoring([gender,height*100,weight,body_fat,muscle_mass])
-        print(Score)
+        Score = round(calcScore.Scoring([gender,height*100,weight,body_fat,muscle_mass]),2)
+        
+        
         return Response({"percentage" : BMI, "score" : Score}, status=200)
 
     
