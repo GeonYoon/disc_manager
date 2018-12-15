@@ -10,7 +10,7 @@ const bmiTable = [
 
 class BMIGraph extends PureComponent {
   render() {
-    const indicatorValue = this.props.value
+    const indicatorValues = this.props.value || []
     const rects = []
     const minValue = 14
     const maxValue = bmiTable[bmiTable.length - 1].value
@@ -25,7 +25,7 @@ class BMIGraph extends PureComponent {
       }
     }
     return (
-      <svg width='100%' viewBox={`${minValue} 0 ${maxValue - minValue} 4`}>
+      <svg width='100%' viewBox={`${minValue} 0 ${maxValue - minValue} 5`}>
         <style>
         {`
           .text-bar-label {
@@ -41,19 +41,27 @@ class BMIGraph extends PureComponent {
 
           .indicator-line {
             stroke: black;
-            stroke-width: .3px;
+            stroke-width: .13px;
+          }
+
+          .indicator-label {
+            font-size: 1px;
+            font-weight: bold;
+            text-anchor: middle;
           }
 
           .indicator-value {
-            font-size: 1px;
-            font-weight: bold;
+            font-size: 0.8px;
             text-anchor: middle;
           }
         `}
         </style>
         { rects }
-        <line x1={indicatorValue} y1='0.7' x2={indicatorValue} y2='2.7' className='indicator-line'></line>
-        <text x={indicatorValue} y='3.5' className='indicator-value'>{indicatorValue}</text>
+        { indicatorValues.map(({bmi, label}) => <>
+          <line x1={bmi} y1='0.7' x2={bmi} y2='3.2' className='indicator-line'></line>
+          <text x={bmi} y='4.0' className='indicator-label'>{label}</text>
+          <text x={bmi} y='5.0' className='indicator-value'>{bmi}</text>
+        </>) }
       </svg>
     )
   }

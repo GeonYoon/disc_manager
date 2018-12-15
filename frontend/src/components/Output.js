@@ -14,7 +14,10 @@ class Output extends Component {
                 <p>Probability of taking a waist disc<strong>{percentage}</strong></p>
               </div>
             </div>
-            <BMIGraph value='33'></BMIGraph>
+            <BMIGraph value={[{
+              label: '내 BMI',
+              bmi: 22
+            }]}></BMIGraph>
         </div>
       </div>
     );
