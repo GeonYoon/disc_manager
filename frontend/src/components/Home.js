@@ -17,7 +17,7 @@ const friendBMI = [
 class Home extends Component {
   render() {
     const data = [
-      { label: `나 (${username})`, bmi: myBMI },
+      { label: `나 (${username})`, bmi: myBMI, highlight: true },
       ...friendBMI
     ]
     return (

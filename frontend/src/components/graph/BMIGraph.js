@@ -47,7 +47,6 @@ class BMIGraph extends PureComponent {
 
           .indicator-label {
             font-size: 0.4px;
-            font-weight: bold;
           }
 
           .indicator-value {
@@ -57,10 +56,11 @@ class BMIGraph extends PureComponent {
         `}
         </style>
         { rects }
-        { indicatorValues.map(({bmi, label}) => <>
+        { indicatorValues.map(({bmi, label, highlight}) => <>
           <line x1={bmi} y1='0.9' x2={bmi} y2='3.7' className='indicator-line'></line>
           <text x={bmi} y='0.8' className='indicator-value'>{bmi}</text>
-          <text x={bmi - 0.4} y='4.2' className='indicator-label' transform={`rotate(30 ${bmi} 4.6)`}>{label}</text>
+          <text x={bmi - 0.4} y='4.2' className='indicator-label' transform={`rotate(30 ${bmi} 4.6)`}
+            font-weight={highlight ? 'bold' : 'normal'}>{label}</text>
         </>) }
       </svg>
     )
