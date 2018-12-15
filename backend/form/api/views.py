@@ -21,7 +21,6 @@ class FormAPIView(APIView):
         smoking = data.get("smoking")
         file_1 = data.get("file")
 
-
         BMI = round(weight / (height*height),2)
         
         return Response({"percentage" : BMI}, status=200)
