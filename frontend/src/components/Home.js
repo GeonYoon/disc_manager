@@ -31,7 +31,7 @@ class Home extends Component {
           <CardPanel className='teal lighten-4'>
             <strong>디스크에 걸릴 확률은 {percentage}% 입니다.</strong>
           </CardPanel>
-          <Row class='center-align'>
+          <Row className='center-align'>
             <img src={avatarImg} width={200} alt='내 이미지' />
           </Row>
           <BMIGraph value={data}></BMIGraph>
