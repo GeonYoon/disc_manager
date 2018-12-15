@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 import BMIGraph from './graph/BMIGraph';
+import avatarImg from '../assets/man_avatar.png'
+import CardPanel from 'react-materialize/lib/CardPanel';
+import Row from 'react-materialize/lib/Row';
 
 const username = '덴마'
 
@@ -19,8 +22,13 @@ class Home extends Component {
     ]
     return (
       <div style={{padding:20}}>
-        Hello!
-        <BMIGraph value={data}></BMIGraph>
+        <CardPanel s={12}>
+          <h3>{username}의 정보</h3>
+          <Row class='center-align'>
+            <img src={avatarImg} width={200} alt='내 이미지' />
+          </Row>
+          <BMIGraph value={data}></BMIGraph>
+        </CardPanel>
       </div>
     );
   }
