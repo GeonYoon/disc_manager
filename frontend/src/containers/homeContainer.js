@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Home from '../components/Home';
 import { withRouter } from 'react-router-dom';
-import { BMI } from '../utils';
 
 class HomeContainer extends Component {
   render() {
@@ -13,9 +12,7 @@ class HomeContainer extends Component {
 }
 
 const mapStateToProps = ({ form, auth }) => {
-  console.log("score is: " + form.score)
   return {
-    // bmi: BMI(form.height, form.weight),
     score : form.score,
     muscle: form.muscle_mass,
     fat: form.body_fat,

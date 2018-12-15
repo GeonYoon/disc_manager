@@ -33,8 +33,6 @@ const Friends = (props) => {
           <tr>
             <th>#</th>
             <th>이름</th>
-            <th>키</th>
-            <th>몸무게</th>
             <th>Score</th>
           </tr>
         </thead>
@@ -44,8 +42,6 @@ const Friends = (props) => {
           })}>
             <td>{index + 1}</td>
             <td>{data.name}</td>
-            <td>{data.height}</td>
-            <td>{data.weight}</td>
             <td>{getLumbarScore(data).toFixed(1)}</td>
           </tr>)}
         </tbody>
