@@ -5,17 +5,18 @@ const bmiTable = [
   { value: 22.5, label: '정상', color: '#92D050' },
   { value: 25.0, label: '과체중', color: '#FFFF00' },
   { value: 30.0, label: '경도비만', color: '#FFC000' },
-  { value: 50.0, label: '고도비만', color: '#FF0000' }
+  { value: 40.0, label: '고도비만', color: '#FF0000' }
 ]
 
 class BMIGraph extends PureComponent {
   render() {
     const indicatorValue = this.props.value
     const rects = []
+    const minValue = 14
     const maxValue = bmiTable[bmiTable.length - 1].value
 
     for(let i = 0 ; i < bmiTable.length ; i++) {
-      const prevValue = (i === 0) ? 0 : bmiTable[i - 1].value
+      const prevValue = (i === 0) ? minValue : bmiTable[i - 1].value
       const {value, color, label} = bmiTable[i]
       rects.push(<rect x={prevValue} y='1' width={value - prevValue} height='1.4' fill={color}></rect>)
       rects.push(<text x={(value + prevValue) / 2} y='2' className='text-bar-label'>{label}</text>)
@@ -24,7 +25,7 @@ class BMIGraph extends PureComponent {
       }
     }
     return (
-      <svg width='100%' viewBox={`0 0 ${maxValue} 4`}>
+      <svg width='100%' viewBox={`${minValue} 0 ${maxValue - minValue} 4`}>
         <style>
         {`
           .text-bar-label {
