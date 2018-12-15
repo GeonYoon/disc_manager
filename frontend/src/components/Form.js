@@ -9,16 +9,6 @@ class Form extends Component {
       age : '',
       blood_pressure : ''
     };
-
-    // TODO: Remove this
-    setTimeout(() => {
-      this.setState({
-        age: 24,
-        blood_pressure: 80
-      })
-      this.props.handleForm(24, 80, this.props.history);
-    }, 100)
-    // TODO
   }
 
   handleChange = e => {
