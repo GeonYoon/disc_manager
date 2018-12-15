@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import BMIGraph from './BMIGraph';
 
 class Output extends Component {
 
@@ -10,9 +11,10 @@ class Output extends Component {
             <div className="card red accent-1 darken-1">
               <div className="card-content white-text">
                 <span className="card-title">Hi {username}!</span>
-                <p>Probability of taking a waist disk<strong>{percentage}</strong></p>
+                <p>Probability of taking a waist disc<strong>{percentage}</strong></p>
               </div>
             </div>
+            <BMIGraph value='33'></BMIGraph>
         </div>
       </div>
     );
