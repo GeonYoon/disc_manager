@@ -8,17 +8,12 @@ import {
 } from 'react-materialize'
 import friendsData from '../apimock/friendsData'
 
-const myBMI = 24
-const myMuscle = 30
-const myFat = 30
-
-
 class Home extends Component {
   render() {
-    const { percentage, username } = this.props
+    const { percentage, username, muscle, fat, bmi } = this.props
 
     const data = [
-      { label: `나 (${username})`, bmi: myBMI, highlight: true },
+      { label: `나 (${username})`, bmi, highlight: true },
       ...friendsData.map(({name, height, weight}) => ({
         label: name,
         bmi: weight / height / height * 10000
@@ -46,9 +41,9 @@ class Home extends Component {
             </thead>
             <tbody>
               <tr>
-                <td>{myBMI}</td>
-                <td>{myMuscle}</td>
-                <td>{myFat}</td>
+                <td>{bmi.toFixed(1)}</td>
+                <td>{muscle}</td>
+                <td>{fat}</td>
               </tr>
             </tbody>
           </Table>

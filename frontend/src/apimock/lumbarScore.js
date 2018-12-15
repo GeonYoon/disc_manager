@@ -1,12 +1,9 @@
 
 import friendsData from './friendsData'
-
-function bmi ({ height, weight }) {
-  return weight / height / height * 10000
-}
+import { BMI } from '../utils'
 
 export function getLumbarScore ({height, weight}) {
-  return 1000 / bmi({ height, weight })
+  return 1000 / BMI(height, weight)
 }
 
 export function getLumbarScoreRanking (data) {
