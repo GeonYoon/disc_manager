@@ -18,9 +18,12 @@ class Header extends Component {
                    <li key='2'><Link to={'/register'}>Register</Link></li>
                  ];
             default:
-                return (
-                    <li><Link to={'/'} onClick={this.handleSubmit.bind(this)}>Logout</Link></li>
-                );
+                return [
+                    <li key='3'><Link to={'/home'}>Home</Link></li>,
+                    <li key='4'><Link to={'/friends'}>Friends</Link></li>,
+                    <li key='5'><Link to={'/form'}>Update</Link></li>,
+                    <li key='6'><Link to={'/'} onClick={this.handleSubmit.bind(this)}>Logout</Link></li>
+                ];
         }
     };
 
@@ -43,7 +46,4 @@ class Header extends Component {
     }
 }
 
-// function mapStateToProps( { auth } ) {
-//     return { auth };
-// }
 export default Header;
