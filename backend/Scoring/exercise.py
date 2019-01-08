@@ -1,4 +1,4 @@
-def suggest_work_out (backpain, history, age, gender, height, weight, skeletal_muscle, body_fat, smoke ):
+def suggest_work_out (backpain, history, age, height, weight, skeletal_muscle, body_fat, smoke ):
 
   bmi = (weight)/((height*0.01)**2)
   body_fat_percent = (body_fat/weight)*100

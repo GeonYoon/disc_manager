@@ -4,11 +4,11 @@ from django.contrib import admin
 from .models import Health
 
 
-class StatusAdmin(admin.ModelAdmin):
-    list_display = ['user','__str__']
+class HealthAdmin(admin.ModelAdmin):
+    list_display = ['username','__str__']
     # form = StatusForm
     # class Meta:
     #     model = Status
         
         
-admin.site.register(Health, StatusAdmin)
+admin.site.register(Health, HealthAdmin)

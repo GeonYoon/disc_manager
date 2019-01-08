@@ -5,7 +5,8 @@ import {
   LOGIN_FAILURE,
   LOGOUT,
   REGISTER_SUCCESS,
-  REGISTER_FAILURE
+  REGISTER_FAILURE,
+  FORM_RESET
 } from './types';
 
 export const login = (username, password,history) => async dispatch => {
@@ -20,6 +21,7 @@ export const login = (username, password,history) => async dispatch => {
   }
 }
 export const logout = () => async dispatch => {
+  dispatch({type : FORM_RESET})
   dispatch({type: LOGOUT})
 }
 
@@ -27,6 +29,7 @@ export const register = (username,password,password2,email,history) => async dis
   try{
     const compact ={username,password,password2,email}
     const res = await axios.post('http://127.0.0.1:8000/api/auth/register/',compact)
+    console.log(res.data);
     dispatch({type: REGISTER_SUCCESS, payload: res.data})
     history.push('/form');
   }

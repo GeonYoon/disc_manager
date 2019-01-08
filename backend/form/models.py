@@ -1,7 +1,9 @@
 from django.conf import settings 
 from django.db import models
+from django.contrib.auth.models import User
 
-class StatusQuerySet(models.QuerySet):
+
+class HealthQuerySet(models.QuerySet):
     pass
 '''
 A Manager's base QuerySet returns all object in the system.
@@ -9,23 +11,33 @@ You can override a Manager's base QuerySet by overriding the Manager.get_queryse
 get_queryset() should return a QuerySet witht he properties you require. 
 https://docs.djangoproject.com/ko/2.1/topics/db/managers/
 '''
-# class StatusManager(models.Manager):
-#     def get_queryset(self):
-#         return StatusQuerySet(self.models, using=self.db)
+class HealthManager(models.Manager):
+    def get_queryset(self):
+        return HealthQuerySet(self.models, using=self.db)
 
-
-# Create your models here.
-class Health(models.Model): #fb status, instagram post, tweet, linkedin post
-    user        = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    BMI         = models.IntegerField()
-    score       = models.IntegerField()
-    height      = models.IntegerField()
-    weight      = models.IntegerField()
-    muscle_mass = models.IntegerField()
-    body_fat    = models.IntegerField()
-    smoking     = models.IntegerField()
-    updated     = models.DateTimeField(auto_now = True)
-    timestamp   = models.DateTimeField(auto_now_add = True)
+class Health(models.Model): 
+    username    = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,blank=True, null=True)
+    # username = models.ForeignKey(
+    #     User,
+    #     on_delete=models.CASCADE,
+    #     related_name='form',
+    #     null=True
+    # )
+    BMI         = models.IntegerField(blank=True, null=True)
+    age         = models.IntegerField(blank=True, null=True)
+    pain        = models.CharField(max_length=5,blank=True, null=True)
+    gender      = models.CharField(max_length=5,blank=True, null=True)
+    accident    = models.CharField(max_length=5,blank=True, null=True)
+    score       = models.IntegerField(blank=True, null=True)
+    height      = models.IntegerField(blank=True, null=True)
+    weight      = models.IntegerField(blank=True, null=True)
+    muscle_mass = models.IntegerField(blank=True, null=True)
+    body_fat    = models.IntegerField(blank=True, null=True)
+    smoking     = models.CharField(max_length=5, blank=True, null=True)
+    suggested_exercise = models.CharField(max_length=500, blank=True, null=True)
+    reason      = models.CharField(max_length=500, blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(null=True)
     
     def __str__(self):
         return str(self.score)

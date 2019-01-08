@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import { Row, Input } from 'react-materialize'
+import '../css/form.css'
 
 
 class Form extends Component {
@@ -12,11 +13,10 @@ class Form extends Component {
       muscle_mass : null,
       body_fat : null,
       smoking : null,
-      file: null,
       pain: null,
       accident : null,
       gender : null,
-      ...props.form
+      ...this.props.form
     }
   }
 
@@ -24,12 +24,8 @@ class Form extends Component {
     this.setState({ [e.target.name]: e.target.value })
   }
 
-  handleChangeNumber = e => {
-    this.setState({ [e.target.name]: e.target.value ? e.target.value | 0 : null })
-  }
-
   handleSubmit = e => {
-    this.props.handleForm(this.state)
+    this.props.handleForm(this.state,this.props.token)
   }
 
   render() {
@@ -38,30 +34,9 @@ class Form extends Component {
               <Row>
                 <Input
                   label="Your age"
-                  s={6}
+                  s={12}
                   name="age"
                   defaultValue={this.state.age}
-                  onChange={this.handleChangeNumber}
-                />
-                <Input
-                  label="Type your gender"
-                  s={6}
-                  name="gender"
-                  defaultValue={this.state.gender}
-                  onChange={this.handleChange}
-                />
-                <Input
-                  label="Do you feel pain from your back?"
-                  s={6}
-                  name="pain"
-                  defaultValue={this.state.pain}
-                  onChange={this.handleChange}
-                />
-                 <Input
-                  label="have you ever been hurt your back?"
-                  s={6}
-                  name="accident"
-                  defaultValue={this.state.accident}
                   onChange={this.handleChange}
                 />
                 <Input
@@ -69,46 +44,53 @@ class Form extends Component {
                   s={6}
                   name="height"
                   defaultValue={this.state.height}
-                  onChange={this.handleChangeNumber}
+                  onChange={this.handleChange}
                 />
                 <Input
                   label="weight (kg)"
                   s={6}
                   name="weight"
                   defaultValue={this.state.weight}
-                  onChange={this.handleChangeNumber}
+                  onChange={this.handleChange}
                 />
                 <Input
                   label="muscle_mass (kg)"
                   s={6}
                   name="muscle_mass"
                   defaultValue={this.state.muscle_mass}
-                  onChange={this.handleChangeNumber}
+                  onChange={this.handleChange}
                 />
                 <Input
                   label="body_fat (%)"
                   s={6}
                   name="body_fat"
                   defaultValue={this.state.body_fat}
-                  onChange={this.handleChangeNumber}
-                />
-                <Input
-                  label="Type YES if you smoke or Type No"
-                  s={6}
-                  name="smoking"
-                  defaultValue={this.state.smoking}
                   onChange={this.handleChange}
                 />
-                <Input type="file"
-                       label="File"
-                       name="file"
-                       onChange={this.handleChange}
-                       s={6}
-                       placeholder="Upload your genetic file"
-                />
+              
+                <Input name='smoking' s={6}type='radio' value='true' label='I do smoke' onChange={this.handleChange } checked={this.state.smoking === 'true'}/>
+                <Input name='smoking' s={6}type='radio' value='false' label='I do NOT smoke'onChange={this.handleChange} checked={this.state.smoking === 'false'}/>
+
+                <Input name='pain' s={6}type='radio' value='true' label='I do feel the pain from back' onChange={this.handleChange} checked={this.state.smoking === 'true'}/>
+                <Input name='pain' s={6}type='radio' value='false' label='I do NOT feel the pain' onChange={this.handleChange} checked={this.state.smoking === 'false'}/>
+
+                <Input name='accident' s={6}type='radio' value='true' label='I have been hurt my back' onChange={this.handleChange} checked={this.state.smoking === 'true'}/>
+                <Input name='accident' s={6}type='radio' value='false' label='I have NEVER been hurt my back' onChange={this.handleChange} checked={this.state.smoking === 'false'}/>
+
+                <Input name='gender' s={6}type='radio' value='M' label='Male' onChange={this.handleChange} checked={this.state.gender === 'M'}/>
+                <Input name='gender' s={6}type='radio' value='F' label='Female' onChange={this.handleChange} checked={this.state.gender === 'F'}/>
+          
               </Row>
-              <div className="fixed-action-btn">
-                <div className="btn-floating btn-large red">
+              <div className="margin-top">
+                {/* <div className="col s6 btn-large red lighten-2 left">
+                    <i
+                      className="material-icons"
+                      onClick={this.handleSubmit}
+                    >
+                      update
+                    </i>
+                </div> */}
+                <div className="col s6 btn-large red lighten-2 right">
                     <i
                       className="material-icons"
                       onClick={this.handleSubmit}
