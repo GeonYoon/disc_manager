@@ -19,7 +19,13 @@ class Home extends Component {
         bmi: weight / height / height * 10000
       }))
     ]
-    return (
+    return advice === undefined
+      ? <div> 
+          <CardPanel className="red lighten-4 black-text">
+              <span>we don't have your information. Please update your information first</span>
+          </CardPanel>
+        </div>
+      : (
       <div style={{padding:20}}>
         <CardPanel s={12}>
           <h3>{username}님의 정보</h3>
