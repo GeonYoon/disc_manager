@@ -58,6 +58,9 @@ python3 manage.py runserver
 * [Redux](http://redux.js.org/docs/basics/UsageWithReact.html) - Predictable state container for JavaScript apps
 
 ## Authors
-* ** Geon Yoon ** - *Initial work* - [GeonYoon](https://github.com/GeonYoon)
-* ** kangjuw ** - *Initial work* - [kangjuw](https://github.com/kangjuw)
-* ** phu54321 ** - *Initial work* - [phu54321](https://github.com/phu54321)
+* ** Geon Yoon ** - * Frontend & Backend * - [GeonYoon](https://github.com/GeonYoon)
+* ** JongHu Park ** - * Frontend * - [phu54321](https://github.com/phu54321)
+* ** HyunWoo park ** - * Presentation * - [kangjuw](https://github.com/kangjuw)
+* ** JooWon Kang ** - * Developing Scoring System * 
+* ** Dohyun Ann ** - * Research *  
+
